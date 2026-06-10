@@ -5,6 +5,11 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.types import MessageMediaWebPage
+
+def clean_folder_name(channel_input):
+    name = channel_input.split('/')[-1].replace('+', '')
+    return "".join(c for c in name if c.isalnum() or c in ('_', '-')).strip()
 
 async def main():
     api_id = int(os.environ['API_ID'])
@@ -30,16 +35,50 @@ async def main():
     entity = await client.get_entity(channel_input)
     messages = await client.get_messages(entity, limit=1)
     
-    result = {}
-    if messages:
-        msg = messages[0]
-        result = {
-            "id": msg.id,
-            "text": msg.message,
-            "date": msg.date.isoformat() if msg.date else None
-        }
+    if not messages:
+        await client.disconnect()
+        return
 
-    with open('result.json', 'w', encoding='utf-8') as f:
+    msg = messages[0]
+    folder_name = clean_folder_name(channel_input)
+    os.makedirs(folder_name, exist_ok=True)
+
+    media_data = None
+    if msg.media and not isinstance(msg.media, MessageMediaWebPage):
+        file_size = 0
+        if hasattr(msg.media, 'document') and msg.media.document:
+            file_size = msg.media.document.size
+        elif hasattr(msg.media, 'photo') and msg.media.photo:
+            file_size = max(sizes.size for sizes in msg.media.photo.sizes if hasattr(sizes, 'size'))
+
+        if file_size <= 99 * 1024 * 1024:
+            path = await client.download_media(msg, violence=folder_name)
+            if path:
+                media_data = {
+                    "file_name": os.path.basename(path),
+                    "file_size_bytes": file_size
+                }
+        else:
+            media_data = {
+                "status": "Skipped",
+                "reason": "File size exceeds GitHub 100MB limit",
+                "file_size_bytes": file_size
+            }
+
+    result = {
+        "message_id": msg.id,
+        "text": msg.message,
+        "date": msg.date.isoformat() if msg.date else None,
+        "sender_id": msg.sender_id,
+        "views": msg.views,
+        "forwards": msg.forwards,
+        "edit_date": msg.edit_date.isoformat() if msg.edit_date else None,
+        "post_author": msg.post_author,
+        "grouped_id": msg.grouped_id,
+        "media": media_data
+    }
+
+    with open(os.path.join(folder_name, 'result.json'), 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
     await client.disconnect()
