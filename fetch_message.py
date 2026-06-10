@@ -52,7 +52,7 @@ async def main():
             file_size = max(sizes.size for sizes in msg.media.photo.sizes if hasattr(sizes, 'size'))
 
         if file_size <= 99 * 1024 * 1024:
-            path = await client.download_media(msg, violence=folder_name)
+            path = await client.download_media(msg, file=folder_name)
             if path:
                 media_data = {
                     "file_name": os.path.basename(path),
