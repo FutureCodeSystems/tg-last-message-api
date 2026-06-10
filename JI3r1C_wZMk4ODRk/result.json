@@ -1,12 +1,15 @@
 {
-    "message_id": 2,
-    "text": "hi",
-    "date": "2026-06-10T16:59:44+00:00",
+    "message_id": 3,
+    "text": "تست",
+    "date": "2026-06-10T17:07:22+00:00",
     "sender_id": -1003935995773,
-    "views": 2,
+    "views": 1,
     "forwards": 0,
     "edit_date": null,
     "post_author": null,
     "grouped_id": null,
-    "media": null
+    "media": {
+        "file_name": "photo_2026-06-10_17-07-22.jpg",
+        "file_size_bytes": 15118
+    }
 }
