@@ -1,4 +1,4 @@
-name: Fetch Telegram Channel Message
+name: Fetch Telegram Channel Data
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Telethon
+      - name: Install Dependencies
         run: pip install telethon
 
       - name: Run Script
@@ -38,6 +38,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add result.json
-          git commit -m "Update result.json" || true
+          git add .
+          git commit -m "Update channel data" || true
           git push
