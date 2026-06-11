@@ -1,15 +1,50 @@
 {
-    "message_id": 13,
-    "text": "",
-    "date": "2026-06-10T15:14:47+00:00",
-    "sender_id": -1003763141538,
-    "views": 3,
-    "forwards": 0,
-    "edit_date": null,
-    "post_author": null,
-    "grouped_id": null,
-    "media": {
-        "file_name": "New Text Document (3).txt",
-        "file_size_bytes": 3
-    }
+    "channel": "net4fri",
+    "fetched_at": "2026-06-11T04:54:49.132139+00:00",
+    "count": 3,
+    "limit": 3,
+    "posts": [
+        {
+            "message_id": 13,
+            "text": "",
+            "date": "2026-06-10T15:14:47+00:00",
+            "sender_id": -1003763141538,
+            "views": 3,
+            "forwards": 0,
+            "edit_date": null,
+            "post_author": null,
+            "grouped_id": null,
+            "media": {
+                "file_name": "New Text Document (4).txt",
+                "file_size_bytes": 3
+            }
+        },
+        {
+            "message_id": 12,
+            "text": "🔹 Clean IP کلودفلر چیست؟\n\nدر شرایطی که برخی سرویس‌ها یا دامنه‌های Cloudflare در ایران دچار اختلال یا محدودیت می‌شوند، اصطلاح Clean IP بین کاربران رایج شده است.\n\nClean IP یعنی:\nیک آدرس IP از شبکه Cloudflare که هنوز توسط ISP یا سیستم فیلترینگ مسدود نشده و اتصال به آن بدون مشکل انجام می‌شود.\n\n---\n\n🔸 چرا Clean IP مهم است؟\n\nاز آنجایی که Cloudflare به‌عنوان CDN بسیاری از سرویس‌ها استفاده می‌شود، برخی IPهای آن ممکن است کند یا بلاک شوند. پیدا کردن یک Clean IP می‌تواند باعث:\n- اتصال پایدارتر ⚡\n- سرعت بهتر 🚀\n- دسترسی راحت‌تر به سرویس‌های مبتنی بر Cloudflare 🌐\nشود.\n\n---\n\n🛠 پروژه‌های اختصاصی اسکن Clean IP کلودفلر:\n\n• Pashiz  \nhttps://github.com/pashangshahi/pashiz\n\n• Clean IP Scanner  \nhttps://github.com/Argh94/clean-ip-scanner\n\n• CDN IP Scanner Pro  \nhttps://github.com/shahinst/cdn-ip-scanner\n\n• WarpScanner  \nhttps://github.com/arshiacomplus/WarpScanner\n\n• CFScanner  \nhttps://github.com/elliottophellia/cfscanner\n\n• CleanIP Tools  \nhttps://github.com/topics/clean-ip",
+            "date": "2026-02-09T15:47:25+00:00",
+            "sender_id": -1003763141538,
+            "views": 38,
+            "forwards": 0,
+            "edit_date": null,
+            "post_author": null,
+            "grouped_id": null,
+            "media": {
+                "file_name": "photo_2026-02-09_15-47-25.jpg",
+                "file_size_bytes": 8855
+            }
+        },
+        {
+            "message_id": 11,
+            "text": "دی ان اس اختصاصی کانال :\n\n\nhttps://doh.net4fri.workers.dev/dns-query\n\n\n⚠️ این DoH ممکنه از کار بیفتد پس یک DoH اختصاصی با توجه به آموزشات بالا برای خودتون بسازید\n\n👌 مناسب برای تویتر (X) و یوتیوب و دیگر سایت های فیلتر شده بر اساس DNS (خودتون چک کنید)\n---------------\n\nاتمام آموزش - #DoH",
+            "date": "2026-02-08T22:12:21+00:00",
+            "sender_id": -1003763141538,
+            "views": 30,
+            "forwards": 0,
+            "edit_date": "2026-02-08T22:18:58+00:00",
+            "post_author": null,
+            "grouped_id": null,
+            "media": null
+        }
+    ]
 }
