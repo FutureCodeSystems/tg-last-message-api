@@ -4,8 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       channel:
-        description: 'Channel username or invite link'
+        description: 'Channel username or invite link (e.g. @durov or https://t.me/+invite)'
         required: true
+        type: string
+      limit:
+        description: 'How many latest messages to fetch (1-50). Default: 5'
+        required: false
+        default: '5'
         type: string
 
 permissions:
@@ -32,6 +37,7 @@ jobs:
           API_HASH: ${{ secrets.API_HASH }}
           SESSION_STRING: ${{ secrets.SESSION_STRING }}
           CHANNEL: ${{ github.event.inputs.channel }}
+          LIMIT: ${{ github.event.inputs.limit }}
         run: python fetch_message.py
 
       - name: Commit and Push
@@ -39,5 +45,5 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "Update channel data" || true
+          git commit -m "Update channel data (latest ${{ github.event.inputs.limit || '5' }} posts)" || true
           git push
